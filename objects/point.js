@@ -5,25 +5,39 @@ class Point{
      * @param {number} x        The x coordinate of the point
      * @param {number} y        The y coordinate of the point
      */
-    constructor(xx, yy) {
-        this.cords = {
-            x: xx,
-            y: yy
-        };
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
     }
+
     /**
-    * Adds the current point witht he point provided,
-    * for ease of use input is provided as two points:
+    * Returns a new Point with the values of the current point, and
+    * the values of the point provided added.
     * 
     * @param {number} x      The X coordinate of the secondary point
     * @param {number} y      The Y coordinate of the secondary point
     * 
     * @returns {Point}       Returns the new coordinate
     */
-    add(x, y){
+    addWithReturn(x, y){
         return {
-            x: this.cords.x += x,
-            y: this.cords.y += y
+            x: this.x + x,
+            y: this.y + y
         };
+    }
+
+    /**
+     * Adds the provided (x, y) values to the current Point.
+     * 
+     * @param {number} x    The X coordinate of the secondary point
+     * @param {number} y    The Y coordinate of the secondary point
+     */
+    add(x, y) {
+        this.x += x;
+        this.y += y;
+    }
+
+    show(){
+        ellipse(this.x, this.y, 1, 1);
     }
 }

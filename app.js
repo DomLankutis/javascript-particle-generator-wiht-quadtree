@@ -1,16 +1,18 @@
 /// <reference path="./p5.global-mode.d.ts"/>
-/// <reference path="./objects/quadtree.js"/>
 
-let quadtree = new Quadtree(5);
-let points = [];
+let quadtree;
+let rectangle;
 
-function setup(){
-    createCanvas($(document).width() / 2, $(document).height() / 2);
-    for (let i = 0; i < 200; i++){
-        points.push(new Point(random(0, width), random(0, height)));
-    }
+function setup() {
+    
+    createCanvas(1000, 1000);
+    rectMode(CENTER);
+    quadtree = new Quadtree(2, new Rectangle(new Point(width / 2, height / 2), width, height));    
+    
 }
 
-function draw(){
-    
+function draw() {
+    let point = new Point(mouseX, mouseY);
+    quadtree.insert(point);
+    point.show();
 }
